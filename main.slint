@@ -1,0 +1,33 @@
+import { Button } from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+    preferred-width: 640px;
+    preferred-height: 480px;
+
+    in-out property<int> click-count: 0;
+
+    VerticalLayout {
+        spacing: 20px;
+        alignment: center;
+
+        Text {
+            text: "Hello, Slint!";
+            color: blue;
+            font-size: 24px;
+            horizontal-alignment: center;
+        }
+
+        Text {
+            text: "Clicked: " + click-count;
+            font-size: 18px;
+            horizontal-alignment: center;
+        }
+
+        Button {
+            text: "Click Me!";
+            clicked => {
+                root.click-count += 1;
+            }
+        }
+    }
+}
